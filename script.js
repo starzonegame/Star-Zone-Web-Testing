@@ -1847,9 +1847,9 @@ function loadWebsiteData(data){
   const playboxUnit = units.find(u => u.id === "playbox" || u.category === "PlayStation") || units[1];
 
   setText("dashNintendoBadge", nintendoUnit ? nintendoUnit.badge : "READY");
-  setText("dashPlayboxBadge", playboxUnit ? playboxUnit.badge : "READY");
-  setText("dashNintendoPrice", nintendoUnit ? formatRupiah(parsePriceNumber(nintendoUnit.price)) : "Rp 80.000");
-  setText("dashPlayboxPrice", playboxUnit ? formatRupiah(parsePriceNumber(playboxUnit.price)) : "Rp 70.000");
+  setText("dashPlayboxBadge", playboxUnit ? playboxUnit.badge : "COMINGSOON");
+  setText("dashNintendoPrice", nintendoUnit ? formatRupiah(parsePriceNumber(nintendoUnit.price)) : "Rp 100.000");
+  setText("dashPlayboxPrice", playboxUnit ? formatRupiah(parsePriceNumber(playboxUnit.price)) : "Rp 250.000");
 
   setImage("websiteLogo", data.logo || "assets/logo-starzone-nobackground.jpeg");
   setImage("galleryImg1", data.gallery1);
