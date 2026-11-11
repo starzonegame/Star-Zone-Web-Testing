@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review StarZone</title>
+  <link rel="icon" type="image/jpeg" href="assets/logo-starzone-hitam.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app review-page">
+    <nav class="navbar">
+      <a class="logo" href="index.html"><span>STAR<span>ZONE</span></span></a>
+      <div class="nav-links">
+        <a href="index.html">Kembali ke Website</a>
+      </div>
+    </nav>
+
+    <section class="review-wrap">
+      <div class="review-hero-card">
+        <span class="hero-tag">▶ CUSTOMER REVIEW</span>
+        <h1>Kasih Review<br>untuk StarZone</h1>
+        <p>Terima kasih sudah sewa di StarZone. Review kamu bantu kami jadi lebih baik dan bantu customer lain lebih yakin.</p>
+        <div id="bookingReviewInfo" style="margin-top:16px; display:none;">
+          <span class="mini-label" id="bookingReviewLabel">BOOKING TERVERIFIKASI</span>
+        </div>
+      </div>
+
+      <div class="review-form-card card">
+        <h2>Form Review</h2>
+        <div id="reviewAlert" class="alert alert-error" style="display:none"></div>
+        <div id="reviewSuccess" class="review-success" style="display:none">
+          Review berhasil dikirim! Terima kasih ya 🙌<br>
+          Review kamu langsung tampil realtime di website StarZone.
+        </div>
+
+        <label>Nama</label>
+        <input type="text" id="reviewName" placeholder="Contoh: Roy">
+
+        <label>Rating</label>
+        <div class="star-rating" id="starRating">
+          <button type="button" onclick="setReviewRating(1)">★</button>
+          <button type="button" onclick="setReviewRating(2)">★</button>
+          <button type="button" onclick="setReviewRating(3)">★</button>
+          <button type="button" onclick="setReviewRating(4)">★</button>
+          <button type="button" onclick="setReviewRating(5)">★</button>
+        </div>
+        <input type="hidden" id="reviewRating" value="5">
+
+        <label>Ulasan</label>
+        <textarea id="reviewMessage" placeholder="Contoh: Unit bagus, admin fast respon, booking mudah."></textarea>
+
+        <button class="wa-btn" type="button" onclick="submitReview()">Kirim Review</button>
+      </div>
+    </section>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase, ref, set, get, onValue, update } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCG_hR3oAE3Da3MZPsBhsurINL98k22cf0",
+      authDomain: "star-zone-game.firebaseapp.com",
+      databaseURL: "https://star-zone-game-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "star-zone-game",
+      storageBucket: "star-zone-game.firebasestorage.app",
+      messagingSenderId: "645032253311",
+      appId: "1:645032253311:web:73b2c82ef2f92b52e6ac4a",
+      measurementId: "G-WTK0SCL29L"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    window.db = getDatabase(app);
+    window.ref = ref;
+    window.set = set;
+    window.get = get;
+    window.onValue = onValue;
+    window.update = update;
+    window.dispatchEvent(new Event("firebase-ready"));
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

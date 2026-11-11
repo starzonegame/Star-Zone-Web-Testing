@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>StarZone - Sewa Nintendo Switch & Playbox Cirebon</title>
+  <link rel="icon" type="image/jpeg" href="assets/logo-starzone-hitam.jpeg" />
+
+  <meta property="og:title" content="StarZone Rental - Main Seru Tanpa Beli Mahal" />
+  <meta property="og:description" content="Sewa Nintendo Switch OLED & Playbox di Cirebon. Kondisi terbaik, harga terjangkau, dan jadwal update realtime!" />
+  <meta property="og:image" content="assets/logo-starzone-hitam.jpeg" />
+  <meta property="og:url" content="https://star-zone-game.web.app" />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+  <!-- PIXEL OPENING INTRO (DIPERTAHANKAN 100%) -->
+  <div class="sz-intro-loader" id="szIntroLoader" aria-label="StarZone opening intro">
+    <div class="sz-intro-crt"></div>
+    <div class="sz-intro-scanline"></div>
+    <div class="sz-intro-neon-sky"></div>
+    <div class="sz-intro-city sz-intro-city-back"></div>
+    <div class="sz-intro-city sz-intro-city-front"></div>
+    <div class="sz-intro-platform"></div>
+    <div class="sz-intro-stars" id="szIntroStars"></div>
+    <div class="sz-intro-streaks" id="szIntroStreaks"></div>
+    <div class="sz-intro-globe"><span></span><span></span><span></span></div>
+    <div class="sz-intro-logo-wrap">
+      <div class="sz-intro-logo" data-text="STARZONE">STARZONE</div>
+      <div class="sz-intro-subtitle">SEWA NINTENDO DAN PLAYBOX</div>
+      <div class="sz-intro-small">NINTENDO • PLAYBOX</div>
+    </div>
+    <div class="sz-intro-text sz-intro-text-1">MAIN SERU TANPA BELI MAHAL</div>
+    <div class="sz-intro-text sz-intro-text-2">JADWAL REALTIME • BOOKING VIA WHATSAPP</div>
+    <button class="sz-intro-skip" id="szIntroSkip" type="button">Skip</button>
+    <div class="sz-intro-loading-bar"><span></span></div>
+  </div>
+
+  <div class="app">
+    <!-- NAVBAR PELANGGAN (BEBAS DARI TOMBOL/LINK ADMIN) -->
+    <nav class="navbar">
+      <a class="logo" href="#home">
+        <img id="websiteLogo" class="logo-img" alt="Logo StarZone" src="assets/logo-starzone-nobackground.jpeg">
+        <span>STAR<span>ZONE</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="#catalog">Katalog</a>
+        <a href="games.html">Preview Game</a>
+        <a href="#howto">Cara Booking</a>
+        <a href="#jadwal">Jadwal Kalender</a>
+        <a href="#faq">FAQ</a>
+        <a href="#booking">Booking</a>
+      </div>
+    </nav>
+
+    <!-- TOKEN TICKER -->
+    <div class="token-ticker">
+      <div class="ticker-content" id="tickerContent">
+        <span>⭐ NINTENDO SWITCH OLED</span><span>⭐ PLAYBOX READY</span><span>⭐ BOOKING VIA WHATSAPP</span><span>⭐ UPDATE REALTIME</span>
+        <span>⭐ NINTENDO SWITCH OLED</span><span>⭐ PLAYBOX READY</span><span>⭐ BOOKING VIA WHATSAPP</span><span>⭐ UPDATE REALTIME</span>
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <span class="hero-tag">▶ JASA SEWA TERPERCAYA</span>
+        <h1>Main Seru,<br>Tanpa Beli Mahal!</h1>
+        <p>Sewa Nintendo Switch OLED dan Playbox dengan harga terjangkau, kondisi terbaik, dan update jadwal realtime.</p>
+        <div class="hero-btns">
+          <a href="#booking" class="btn">Booking Sekarang</a>
+          <a href="#catalog" class="btn btn-cyan">Lihat Katalog</a>
+          <a href="games.html" class="btn btn-green">Preview Game</a>
+        </div>
+      </div>
+      <div class="hero-image hero-dashboard-box">
+        <div class="store-status-card">
+          <span id="storeStatusText" class="store-status open">OPEN</span>
+          <small id="storeHoursText">Buka sampai 22:00</small>
+        </div>
+
+        <!-- HERO PIXEL DASHBOARD LOOP (DIPERTAHANKAN 100%) -->
+        <div class="pixel-dashboard-loop" id="pixelDashboardLoop" aria-label="Dashboard animasi pixel StarZone">
+          <div class="pixel-dashboard-crt"></div>
+          <div class="pixel-dashboard-stars" id="pixelDashboardStars"></div>
+          <div class="pixel-dashboard-streaks" id="pixelDashboardStreaks"></div>
+          <div class="pixel-dashboard-sun"></div>
+          <div class="pixel-dashboard-city back"></div>
+          <div class="pixel-dashboard-city front"></div>
+          <div class="pixel-dashboard-grid"></div>
+
+          <div class="pixel-dashboard-main">
+            <span class="pixel-dashboard-kicker">STARZONE DASHBOARD</span>
+            <h3>
+              <span>SEWA</span>
+              <span>NINTENDO</span>
+              <span>PLAYBOX</span>
+            </h3>
+            <p>Booking via WhatsApp, jadwal realtime, unit siap antar.</p>
+          </div>
+
+          <div class="pixel-dashboard-info">
+            <div class="dash-info-card">
+              <small>UNIT 01</small>
+              <b>NINTENDO</b>
+              <span id="dashNintendoBadge">READY</span>
+            </div>
+            <div class="dash-info-card">
+              <small>UNIT 02</small>
+              <b>PLAYBOX</b>
+              <span id="dashPlayboxBadge">READY</span>
+            </div>
+            <div class="dash-info-card">
+              <small>PRICE</small>
+              <b id="dashNintendoPrice">Rp 80.000</b>
+              <span>Nintendo / hari</span>
+            </div>
+            <div class="dash-info-card">
+              <small>PRICE</small>
+              <b id="dashPlayboxPrice">Rp 70.000</b>
+              <span>Playbox / hari</span>
+            </div>
+          </div>
+
+          <div class="pixel-dashboard-bottom">
+            <span class="dash-chip active">MAIN SERU</span>
+            <span class="dash-chip">ANTAR JEMPUT</span>
+            <span class="dash-chip">JADWAL REALTIME</span>
+            <span class="dash-chip">CHAT ADMIN</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMO SECTION -->
+    <section class="promo-section">
+      <div class="promo-card no-icon">
+        <div>
+          <span class="mini-label">PROMO REALTIME</span>
+          <h2 id="promoTitleText" class="promo-title-anim">Promo Weekend</h2>
+          <p id="promoBodyText">Sewa sekarang dan konfirmasi via WhatsApp admin.</p>
+        </div>
+        <button type="button" class="btn btn-green" onclick="openPromoDetailModal()">LIHAT DETAIL PROMO</button>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features">
+      <div class="feature-card"><i class="fa-solid fa-truck"></i><h3>Antar Jemput</h3></div>
+      <div class="feature-card"><i class="fa-solid fa-shield"></i><h3>Kondisi Terbaik</h3></div>
+      <div class="feature-card"><i class="fa-solid fa-bolt"></i><h3>Respon Cepat</h3></div>
+      <div class="feature-card"><i class="fa-solid fa-wallet"></i><h3>Harga Terjangkau</h3></div>
+    </section>
+
+    <!-- KATALOG SEWA DINAMIS -->
+    <section class="catalog" id="catalog">
+      <h2 class="section-title">— KATALOG SEWA —</h2>
+      <div class="catalog-grid" id="catalogGrid">
+        <div class="product-card">
+          <div class="status-badge" id="nintendoBadgeText">READY</div>
+          <img id="nintendoImg" alt="Nintendo Switch OLED">
+          <div class="product-content">
+            <h3>Nintendo Switch OLED</h3>
+            <p>Main game favorit dengan layar OLED premium.</p>
+            <div class="price" id="nintendoPriceText">Rp 80.000 / hari</div>
+            <a href="#booking" class="btn btn-block" onclick="selectUnitForBooking('Nintendo Switch OLED')">Sewa Sekarang</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="status-badge badge-pink" id="playboxBadgeText">READY</div>
+          <img id="playboxImg" alt="Playbox">
+          <div class="product-content">
+            <h3>Playbox</h3>
+            <p>Console game seru dengan banyak pilihan game.</p>
+            <div class="price" id="playboxPriceText">Rp 70.000 / hari</div>
+            <a href="#booking" class="btn btn-block btn-pink" onclick="selectUnitForBooking('Playbox')">Sewa Sekarang</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARA BOOKING -->
+    <section class="how-section" id="howto">
+      <h2 class="section-title">— CARA BOOKING —</h2>
+      <div class="steps-grid">
+        <div class="step-card"><span>01</span><h3>Pilih Paket</h3><p>Pilih Nintendo atau Playbox sesuai kebutuhan.</p></div>
+        <div class="step-card"><span>02</span><h3>Isi Form</h3><p>Isi nama, nomor WA, tanggal, jam antar, durasi, add-on, dan alamat.</p></div>
+        <div class="step-card"><span>03</span><h3>Chat Admin</h3><p>Data otomatis masuk ke WhatsApp admin untuk konfirmasi.</p></div>
+        <div class="step-card"><span>04</span><h3>Admin Update</h3><p>Admin konfirmasi booking dan jadwal langsung terkunci realtime.</p></div>
+      </div>
+    </section>
+
+    <!-- GALERI UNIT -->
+    <section class="gallery-section">
+      <h2 class="section-title">— GALERI UNIT —</h2>
+      <div class="gallery-grid">
+        <img id="galleryImg1" alt="Galeri StarZone 1">
+        <img id="galleryImg2" alt="Galeri StarZone 2">
+        <img id="galleryImg3" alt="Galeri StarZone 3">
+        <img id="galleryImg4" alt="Galeri StarZone 4">
+      </div>
+    </section>
+
+    <!-- TESTIMONI CUSTOMER -->
+    <section class="testimonial-section">
+      <h2 class="section-title">— TESTIMONI CUSTOMER —</h2>
+      <div class="testimonial-grid" id="testimonialList">
+        <div class="testimonial-card"><div>⭐⭐⭐⭐⭐</div><p>Barang bagus, admin fast respon, recommended!</p><b>Customer StarZone</b></div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+      <h2 class="section-title">— FAQ —</h2>
+      <div class="faq-grid" id="faqList">
+        <div class="faq-card">
+          <h3>Memuat FAQ...</h3>
+          <p>Data FAQ akan muncul otomatis dari dashboard admin.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SYARAT & KETENTUAN -->
+    <section class="terms-section" id="terms">
+      <h2 class="section-title">— SYARAT & KETENTUAN —</h2>
+      <div class="terms-card">
+        <ol id="termsList">
+          <li>Memuat syarat dan ketentuan...</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- BOOKING SECTION & FORM -->
+    <section class="booking" id="booking">
+      <div class="booking-form card">
+        <h2>Booking Sekarang</h2>
+        
+        <input type="text" id="nama" placeholder="Nama Lengkap">
+        <input type="tel" id="nomor" placeholder="Nomor WhatsApp (Contoh: 08123456789)">
+        
+        <label class="booking-mini-label">Pilih Paket Konsol:</label>
+        <select id="paket" onchange="handlePackageSelectChange(); calculateLivePrice(); checkDateCollisionPreview();">
+          <option value="" disabled selected hidden>Pilih Paket</option>
+          <option value="Nintendo Switch OLED">Nintendo Switch OLED</option>
+          <option value="Playbox">Playbox</option>
+        </select>
+
+        <!-- Pemilihan Game Tambahan -->
+        <div id="unitGameSelectionBox" class="game-box" style="display:none !important;">
+          <span class="game-title" id="unitGameSelectionTitle">PILIH GAME YANG INGIN DIMAINKAN (TAMBAHAN):</span>
+          <div id="unitGameCheckboxes"></div>
+        </div>
+
+        <!-- INFORMASI GAME TERINSTALL DI UNIT (PREVIEW NOTICE) -->
+        <div id="unitGamePreviewNoticeBox" class="game-preview-notice-box" style="display:none !important;">
+          <span class="notice-icon">🎮</span>
+          <p class="notice-text" id="unitGamePreviewNoticeText">Semua game yang berada di preview sudah ada di dalam unit ini.</p>
+        </div>
+
+        <!-- FITUR 2: KATALOG TIPE ADD-ON DINAMIS DARI NODE /addons -->
+        <div class="booking-addon-section">
+          <label class="booking-mini-label">TAMBAH AKSESORI SEWA (ADD-ON):</label>
+          <div class="addon-grid" id="bookingAddonList">
+            <p class="admin-small-text" style="color:var(--muted);">Memuat aksesori add-on...</p>
+          </div>
+        </div>
+
+        <label class="booking-mini-label">Tanggal Mulai Sewa:</label>
+        <input type="date" id="tanggal" onchange="handleDateOrDurationChange();">
+
+        <label class="booking-mini-label">Antar Jam Berapa:</label>
+        <div class="pixel-time-row">
+          <div class="pixel-time-box">
+            <span class="pixel-clock">◷</span>
+            <select id="jamAntarJam" aria-label="Pilih jam antar">
+              <option value="" disabled selected hidden>Jam</option>
+            </select>
+            <span class="pixel-separator">:</span>
+            <select id="jamAntarMenit" aria-label="Pilih menit antar">
+              <option value="" disabled selected hidden>Menit</option>
+            </select>
+            <span class="pixel-time-zone">WIB</span>
+          </div>
+        </div>
+
+        <label class="booking-mini-label">Durasi Sewa:</label>
+        <select id="durasi" onchange="handleDateOrDurationChange();">
+          <option value="" disabled selected hidden>Durasi Sewa</option>
+          <option value="1 Hari">1 Hari</option>
+          <option value="2 Hari">2 Hari</option>
+          <option value="3 Hari">3 Hari</option>
+          <option value="4 Hari">4 Hari</option>
+          <option value="5 Hari">5 Hari</option>
+          <option value="6 Hari">6 Hari</option>
+          <option value="7 Hari">7 Hari (1 Minggu)</option>
+        </select>
+
+        <!-- FITUR 3: SISTEM MULTI-PROMO DROP-DOWN (TERFILTER SESUAI KONSOL) -->
+        <label class="booking-mini-label">PILIH PROMO (OPSIONAL):</label>
+        <select id="promoSelect" onchange="calculateLivePrice()">
+          <option value="">-- Tanpa Promo --</option>
+          <!-- Diisi otomatis dari Firebase Promos yang aktif sesuai kategori paket -->
+        </select>
+
+        <textarea id="alamat" placeholder="Alamat Lengkap Pengantaran"></textarea>
+
+        <div class="rental-guarantee-box" aria-labelledby="rentalGuaranteeTitle">
+          <div class="rental-guarantee-title" id="rentalGuaranteeTitle">
+            <span class="rental-guarantee-icon">✓</span>
+            <span>SYARAT SEWA & JAMINAN</span>
+          </div>
+          <p>Customer wajib menyerahkan <strong>KTP atau SIM asli</strong> sebagai jaminan selama masa sewa. Dokumen akan dikembalikan setelah console dan seluruh perlengkapan dikembalikan sesuai ketentuan.</p>
+          <ul>
+            <li>KTP atau SIM asli diserahkan sebagai jaminan saat serah terima console.</li>
+            <li>Console dan seluruh perlengkapan wajib dikembalikan dalam kondisi baik.</li>
+            <li>Kerusakan atau kehilangan selama masa sewa menjadi tanggung jawab penyewa.</li>
+            <li>Jaminan dikembalikan setelah unit dan perlengkapan selesai diperiksa.</li>
+          </ul>
+        </div>
+
+        <label class="rental-guarantee-agreement">
+          <input type="checkbox" id="jaminanSetuju">
+          <span>Saya memahami dan menyetujui Syarat &amp; Ketentuan STARZONE, termasuk kewajiban menyerahkan KTP atau SIM asli sebagai jaminan saat serah terima console.</span>
+        </label>
+        <p class="rental-guarantee-note">Centang persetujuan untuk melanjutkan ke WhatsApp Admin. Tanpa jaminan KTP atau SIM asli, console belum dapat diambil.</p>
+
+        <!-- FITUR 1: LIVE PRICE PREVIEW BOX (NEON RETRO) -->
+        <div class="live-price-calculator-card" id="livePriceCalculator">
+          <div class="calc-header">
+            <span class="calc-badge">LIVE PRICE PREVIEW</span>
+            <span class="calc-formula-hint">Unit x Hari + Add-on - Promo</span>
+          </div>
+          <div class="calc-breakdown-list">
+            <div class="calc-row">
+              <span class="calc-label" id="calcUnitLabel">Sewa Unit:</span>
+              <span class="calc-val" id="calcUnitVal">Rp 0</span>
+            </div>
+            <div class="calc-row">
+              <span class="calc-label" id="calcAddonLabel">Aksesori Add-on:</span>
+              <span class="calc-val" id="calcAddonVal">Rp 0</span>
+            </div>
+            <div class="calc-row discount-row" id="calcDiscountRow" style="display:none;">
+              <span class="calc-label" id="calcDiscountLabel">Diskon Promo:</span>
+              <span class="calc-val discount-val" id="calcDiscountVal">-Rp 0</span>
+            </div>
+          </div>
+          <div class="calc-total-box">
+            <span class="calc-total-label">TOTAL ESTIMASI BAYAR</span>
+            <span class="calc-total-amount" id="calcTotalAmount">Rp 0</span>
+          </div>
+        </div>
+
+        <!-- TOMBOL BOOKING VIA WHATSAPP -->
+        <button class="wa-btn" type="button" onclick="sendWhatsApp()"><i class="fa-brands fa-whatsapp"></i> Booking Sekarang</button>
+      </div>
+
+      <!-- FITUR 4: TAMPILAN JADWAL KALENDER BULANAN INTERAKTIF (MONTH VIEW) -->
+      <div class="schedule card" id="jadwal">
+        <h2>Jadwal Booking Realtime</h2>
+        <div class="pixel-calendar-wrap">
+          <div class="calendar-header-nav">
+            <button type="button" class="btn btn-cyan btn-cal-nav" onclick="changeMonth(-1)" aria-label="Bulan Sebelumnya">
+              ◀ PREV
+            </button>
+            <div class="calendar-current-month" id="calendarMonthTitle">
+              BULAN TAHUN
+            </div>
+            <button type="button" class="btn btn-cyan btn-cal-nav" onclick="changeMonth(1)" aria-label="Bulan Berikutnya">
+              NEXT ▶
+            </button>
+          </div>
+
+          <div class="calendar-legend-bar">
+            <div class="legend-item"><span class="legend-dot status-ready"></span> Ready</div>
+            <div class="legend-item"><span class="legend-dot status-partial"></span> Sebagian Booked</div>
+            <div class="legend-item"><span class="legend-dot status-booked"></span> Full Booked</div>
+          </div>
+
+          <div class="calendar-days-row">
+            <span>SEN</span><span>SEL</span><span>RAB</span><span>KAM</span><span>JUM</span><span>SAB</span><span>MIN</span>
+          </div>
+
+          <div class="calendar-month-grid" id="calendarMonthGrid">
+            <!-- Grid tanggal di-generate secara interaktif oleh script.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <h3>StarZone</h3>
+      <p>Sewa Nintendo Switch OLED & Playbox Cirebon</p>
+    </footer>
+  </div>
+
+  <!-- FITUR 4: MODAL POP-UP DETAIL UNIT AVAILABLE SAAT KLIK TANGGAL DI KALENDER -->
+  <div class="sz-pixel-modal-overlay" id="unitAvailabilityModal" role="dialog" aria-modal="true" aria-labelledby="unitAvailModalTitle">
+    <div class="sz-pixel-modal">
+      <h2 class="sz-pixel-modal-title" id="unitAvailModalTitle">DETAIL UNIT AVAILABLE</h2>
+      <div class="unit-avail-date-header" id="unitAvailDateHeader">Tanggal: -</div>
+      <div class="sz-pixel-modal-summary" style="margin-bottom: 14px;">
+        <div class="unit-avail-list" id="unitAvailList">
+          <!-- Diisi otomatis oleh JavaScript -->
+        </div>
+      </div>
+      <div class="sz-pixel-modal-actions">
+        <button type="button" class="btn btn-green btn-block" id="bookThisDateBtn" onclick="applyDateToBookingForm()">
+          ★ SEWA TANGGAL INI ★
+        </button>
+        <button type="button" class="btn btn-pink btn-block" onclick="closeUnitAvailModal()">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FITUR 6: MODAL POP-UP CUSTOM PIXEL "★ BOOKING BERHASIL! ★" -->
+  <div class="sz-pixel-modal-overlay" id="bookingSuccessModal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+    <div class="sz-pixel-modal">
+      <h2 class="sz-pixel-modal-title" id="bookingModalTitle">★ BOOKING BERHASIL! ★</h2>
+      <div class="sz-pixel-modal-summary">
+        <div class="booking-detail-grid" id="bookingModalSummaryGrid" style="margin-bottom:0;">
+          <span>Nama</span><strong id="modalSumNama">-</strong>
+          <span>Paket</span><strong id="modalSumPaket">-</strong>
+          <span>Game Pilihan</span><strong id="modalSumGames">-</strong>
+          <span>Add-on</span><strong id="modalSumAddon">-</strong>
+          <span>Promo</span><strong id="modalSumPromo">-</strong>
+          <span>Total Bayar</span><strong id="modalSumTotal" style="color:var(--green);">-</strong>
+          <span>Tanggal</span><strong id="modalSumTanggal">-</strong>
+          <span>Jam Antar</span><strong id="modalSumJam">-</strong>
+          <span>Durasi</span><strong id="modalSumDurasi">-</strong>
+        </div>
+      </div>
+      <div class="sz-pixel-modal-reminder">
+        <strong>PENGINGAT JAMINAN:</strong> Wajib menyiapkan <strong>KTP atau SIM asli</strong> saat serah terima unit konsol.
+      </div>
+      <div class="sz-pixel-modal-actions">
+        <button type="button" class="wa-btn" id="continueWhatsAppBtn" onclick="proceedToWhatsAppFromModal()">
+          <i class="fa-brands fa-whatsapp"></i> LANJUTKAN CHAT WHATSAPP
+        </button>
+        <button type="button" class="btn btn-pink btn-block" style="margin-top:0;" onclick="closeBookingSuccessModal()">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FITUR: MODAL POP-UP DETAIL PROMO REALTIME -->
+  <div class="sz-pixel-modal-overlay" id="promoDetailModal" role="dialog" aria-modal="true" aria-labelledby="promoDetailModalTitle">
+    <div class="sz-pixel-modal">
+      <h2 class="sz-pixel-modal-title" id="promoDetailModalTitle">★ PROMO AKTIF STARZONE ★</h2>
+      <div class="sz-pixel-modal-summary" style="margin-bottom: 14px; max-height: 380px; overflow-y: auto;">
+        <div id="promoDetailModalList" class="promo-modal-list">
+          <!-- Diisi otomatis dari data promo aktif Firebase -->
+        </div>
+      </div>
+      <div class="sz-pixel-modal-reminder">
+        <strong>CARA KLAIM:</strong> Pilih promo yang sesuai di dropdown <strong>PILIH PROMO</strong> pada form booking di bawah, atau diskusikan langsung saat chat WhatsApp Admin!
+      </div>
+      <div class="sz-pixel-modal-actions">
+        <a href="#booking" class="btn btn-green btn-block" onclick="closePromoDetailModal()">
+          🎮 SEWA DENGAN PROMO SEKARANG 🎮
+        </a>
+        <button type="button" class="btn btn-pink btn-block" style="margin-top:0;" onclick="closePromoDetailModal()">
+          Tutup
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a id="floatingWa" class="floating-wa" href="https://wa.me/6281235014308" aria-label="Chat Admin WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>Chat Admin</span>
+  </a>
+
+  <!-- FIREBASE SCRIPTS -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase, ref, set, get, onValue, update } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCG_hR3oAE3Da3MZPsBhsurINL98k22cf0",
+      authDomain: "star-zone-game.firebaseapp.com",
+      databaseURL: "https://star-zone-game-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "star-zone-game",
+      storageBucket: "star-zone-game.firebasestorage.app",
+      messagingSenderId: "645032253311",
+      appId: "1:645032253311:web:73b2c82ef2f92b52e6ac4a",
+      measurementId: "G-WTK0SCL29L"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    window.db = getDatabase(app);
+    window.ref = ref;
+    window.set = set;
+    window.get = get;
+    window.onValue = onValue;
+    window.update = update;
+    window.dispatchEvent(new Event("firebase-ready"));
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

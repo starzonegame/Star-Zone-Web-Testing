@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preview Game - StarZone</title>
+  <link rel="icon" type="image/jpeg" href="assets/logo-starzone-hitam.jpeg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <nav class="navbar">
+      <a class="logo" href="index.html">
+        <img id="websiteLogo" class="logo-img" alt="Logo StarZone">
+        <span>STAR<span>ZONE</span></span>
+      </a>
+      <div class="nav-links">
+        <a href="index.html#catalog">Katalog</a>
+        <a href="games.html">Preview Game</a>
+        <a href="index.html#booking">Booking</a>
+      </div>
+    </nav>
+
+    <main class="game-preview-page">
+      <section class="game-preview-hero">
+        <span class="hero-tag">▶ PREVIEW GAME</span>
+        <h1>Lihat Game Sebelum Sewa</h1>
+        <p>Pilih game yang tersedia, lihat trailer/gameplay YouTube, lalu booking lewat WhatsApp admin.</p>
+        <div class="hero-btns game-preview-actions">
+          <a href="index.html#booking" class="btn btn-green">Booking Sekarang</a>
+          <a href="index.html" class="btn btn-cyan">Kembali Home</a>
+        </div>
+      </section>
+
+      <section class="game-preview-section">
+        <h2 class="section-title">— GAME PREVIEW LIST —</h2>
+
+        <!-- Filter Kategori & Tipe Konsol Preview Game -->
+        <div class="game-preview-tools">
+          <input type="text" id="gameSearchInput" placeholder="Cari game, contoh: Mario / FIFA / GTA">
+          <div class="game-filter-buttons" style="display:flex; flex-wrap:wrap; gap:8px;">
+            <button type="button" class="btn active" data-console-filter="all" onclick="setGameConsoleFilter('all')">Semua</button>
+            <button type="button" class="btn btn-cyan" data-console-filter="Nintendo" onclick="setGameConsoleFilter('Nintendo')">Nintendo</button>
+            <button type="button" class="btn btn-pink" data-console-filter="PlayStation" onclick="setGameConsoleFilter('PlayStation')">PlayStation</button>
+            <button type="button" class="btn" data-console-filter="Nintendo Switch OLED" onclick="setGameConsoleFilter('Nintendo Switch OLED')">Switch OLED</button>
+            <button type="button" class="btn" data-console-filter="Nintendo Switch 2" onclick="setGameConsoleFilter('Nintendo Switch 2')">Switch 2</button>
+            <button type="button" class="btn" data-console-filter="PS5" onclick="setGameConsoleFilter('PS5')">PS5</button>
+            <button type="button" class="btn" data-console-filter="PS4" onclick="setGameConsoleFilter('PS4')">PS4</button>
+            <button type="button" class="btn" data-console-filter="PS3" onclick="setGameConsoleFilter('PS3')">PS3</button>
+          </div>
+        </div>
+
+        <div class="game-preview-grid" id="gamePreviewList">
+          <p class="empty-text">Memuat preview game...</p>
+        </div>
+      </section>
+
+      <!-- FITUR A.4: Form Request Game Baru -->
+      <section class="game-preview-section">
+        <h2 class="section-title">— REQUEST GAME BARU —</h2>
+        <div class="card" style="max-width: 680px; margin: 0 auto;">
+          <p class="admin-small-text">Game favoritmu belum ada di daftar? Request di sini supaya kami tambahkan ke unit StarZone!</p>
+          <div id="gameReqAlert" class="alert alert-error" style="display:none"></div>
+          <div id="gameReqSuccess" class="review-success" style="display:none">
+            Request game berhasil dikirim! Terima kasih atas masukannya 🙌
+          </div>
+
+          <label>Nama Kamu (Opsional)</label>
+          <input type="text" id="reqUserName" placeholder="Contoh: Budi">
+
+          <label>Kategori &amp; Tipe Konsol</label>
+          <select id="reqConsoleCategory">
+            <optgroup label="Nintendo">
+              <option value="Nintendo Switch OLED">Nintendo Switch OLED</option>
+              <option value="Nintendo Switch 2">Nintendo Switch 2</option>
+              <option value="Nintendo">Nintendo (Semua Tipe)</option>
+            </optgroup>
+            <optgroup label="PlayStation">
+              <option value="PS5">PlayStation 5 (PS5)</option>
+              <option value="PS4">PlayStation 4 (PS4)</option>
+              <option value="PS3">PlayStation 3 (PS3)</option>
+              <option value="PlayStation">PlayStation (Semua Tipe)</option>
+            </optgroup>
+          </select>
+
+          <label>Judul Game yang Diinginkan</label>
+          <input type="text" id="reqGameTitle" placeholder="Contoh: Hogwarts Legacy / God of War">
+
+          <label>Catatan Tambahan (Opsional)</label>
+          <textarea id="reqGameNotes" placeholder="Contoh: Seru buat main berdua / co-op"></textarea>
+
+          <button class="wa-btn" type="button" onclick="submitGameRequest()">Kirim Request Game</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <h3>StarZone</h3>
+      <p>Sewa Nintendo Switch OLED & Playbox</p>
+    </footer>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import { getDatabase, ref, set, get, onValue, update } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCG_hR3oAE3Da3MZPsBhsurINL98k22cf0",
+      authDomain: "star-zone-game.firebaseapp.com",
+      databaseURL: "https://star-zone-game-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "star-zone-game",
+      storageBucket: "star-zone-game.firebasestorage.app",
+      messagingSenderId: "645032253311",
+      appId: "1:645032253311:web:73b2c82ef2f92b52e6ac4a",
+      measurementId: "G-WTK0SCL29L"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    window.db = getDatabase(app);
+    window.ref = ref;
+    window.set = set;
+    window.get = get;
+    window.onValue = onValue;
+    window.update = update;
+    window.dispatchEvent(new Event("firebase-ready"));
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
